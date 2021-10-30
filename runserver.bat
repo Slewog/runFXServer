@@ -31,13 +31,13 @@ echo -
 goto :main
 
 :main
-SET choose_back_up=
-SET /p choose_back_up=Want you make a backup of your server data? [Y/N]:
-IF NOT '%choose_back_up%'=='' SET choose_back_up=%choose_back_up:~0,1%
-IF '%choose_back_up%'=='Y' GOTO :backup
-IF '%choose_back_up%'=='y' GOTO :backup
-IF '%choose_back_up%'=='N' GOTO :boot
-IF '%choose_back_up%'=='n' GOTO :boot
+SET choose_backup=
+SET /p choose_backup=Want you make a backup of your server data? [Y/N]:
+IF NOT '%choose_backup%'=='' SET choose_backup=%choose_backup:~0,1%
+IF '%choose_backup%'=='Y' GOTO :backup
+IF '%choose_backup%'=='y' GOTO :backup
+IF '%choose_backup%'=='N' GOTO :boot
+IF '%choose_backup%'=='n' GOTO :boot
 echo Your input is not valid, please answer with Y or N
 goto :main
 
