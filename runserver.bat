@@ -46,7 +46,6 @@ echo -
 echo Back-up du serveur en cours...
 @echo OFF
 mkdir %backup%
-rem XCOPY %resource% %backup% /m /e /y
 XCOPY "%resource%" "%backup%" /e /i
 echo -
 echo Back-up du serveur en finie !
