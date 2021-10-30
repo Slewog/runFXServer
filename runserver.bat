@@ -5,7 +5,7 @@ SET day=%DATE:~0,2%-%DATE:~3,2%-%DATE:~6,10%
 SET hour=%TIME:~0,2%H%TIME:~3,2%M%TIME:~6,2%
 
 rem Server name.
-SET name=e:\FXServer
+SET name=c:\FXServer
 rem Path to the server executable.
 SET executable=%name%\server\run.cmd
 rem Path to the server data.
@@ -13,7 +13,7 @@ SET data=%name%\server-data
 
 
 rem Path to the resources.
-SET resource=%data%\resources\[ SCRIPTS ]
+SET resource=%data%\resources\
 rem Path to the config server file.
 SET config=%data%\server.cfg
 rem Path to the server cache file.
