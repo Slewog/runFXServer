@@ -1,30 +1,31 @@
 @echo OFF
 
-rem Get the date and the hour of the boot.
-SET day=%DATE:~0,2%-%DATE:~3,2%-%DATE:~6,10%
-SET hour=%TIME:~0,2%H%TIME:~3,2%M%TIME:~6,2%
+rem Set the path with the Hard Drive and the Name.
+SET directory=c:\FXServer
 
-rem Server name.
-SET name=c:\FXServer
-rem Path to the server executable.
-SET executable=%name%\server\run.cmd
+rem Path to the server.
+SET executable=%directory%\server
+
 rem Path to the server data.
-SET data=%name%\server-data
-
+SET data=%directory%\server-data
 
 rem Path to the resources.
 SET resource=%data%\resources\
+
 rem Path to the config server file.
 SET config=%data%\server.cfg
+
 rem Path to the server cache file.
 SET cache=%data%\cache
-rem Path to the new backup directory.
-SET backup=%name%\backup\%day%_%hour%\
+
+rem Path to the new backup directory and get the date and hour of the boot.
+SET backup=%directory%\backup\%DATE:~0,2%-%DATE:~3,2%-%DATE:~6,10%_%TIME:~0,2%H%TIME:~3,2%M%TIME:~6,2%\
 
 echo Suppression des caches serveur en cours...
 @echo OFF
 RMDIR /s /q "%cache%\files"
-echo Suppression des caches finies !
+echo -
+echo Suppression des caches serveur finies !
 echo -
 echo ----------------------------------
 echo -
@@ -65,10 +66,11 @@ echo Your input is not valid, please answer with Y or N
 goto :boot
 
 :fxserver
-cd %executable%
-start FXServer.exe
+cd %data%
+start %executable%\FXServer.exe
 wmic Path win32_process Where "Caption Like 'cmd%.exe'" Call Terminate
 
 :cmd
+CLS
 cd %data%
-cmd /k %executable% +exec %config%
+cmd /k %executable%\run.cmd +exec %config%
