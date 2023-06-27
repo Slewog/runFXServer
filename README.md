@@ -10,3 +10,5 @@ It's a batch with some options to run a Five M server on windows.
 - If you run without FXServer, place the run.cmd where is the artifact five m.
 
 Edit the line 8 with the letter where is your directory FXServer.
+
+Try changes via github desktop
